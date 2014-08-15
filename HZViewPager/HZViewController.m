@@ -79,18 +79,17 @@
     return self.view.width / 3;
 }
 
-- (UIColor *)indicatorColorOfViewPager:(HZViewPager *)viewPager
+- (UIColor *)viewPager:(HZViewPager *)viewPager colorForType:(HZViewPagerColorType)type defaultColor:(UIColor *)defaultColor
 {
-    return [UIColor greenColor];
-}
-
-- (UIColor *)normalTextColorOfViewPager:(HZViewPager *)viewPager
-{
-    return [UIColor blackColor];
-}
-- (UIColor *)highlightedTextColorOfViewPager:(HZViewPager *)viewPager
-{
-    return [UIColor greenColor];
+    switch (type) {
+        case HZIndicatorColor: {
+            return [UIColor greenColor];
+        }
+            
+        default: {
+            return defaultColor;
+        }
+    }
 }
 
 @end

@@ -10,6 +10,12 @@
 
 @class HZViewPager;
 
+typedef NS_ENUM(NSInteger, HZViewPagerColorType) {
+    HZIndicatorColor        = 1,
+    HZNormalTextColor       = 2,
+    HZHighlightedTextColor  = 3
+};
+
 @protocol HZViewPagerDataSource <NSObject>
 
 @required
@@ -22,6 +28,8 @@
 - (UIColor *)indicatorColorOfViewPager:(HZViewPager *)viewPager;
 - (UIColor *)normalTextColorOfViewPager:(HZViewPager *)viewPager;
 - (UIColor *)highlightedTextColorOfViewPager:(HZViewPager *)viewPager;
+
+- (UIColor *)viewPager:(HZViewPager *)viewPager colorForType:(HZViewPagerColorType)type defaultColor:(UIColor *)defaultColor;
 
 @end
 

@@ -488,6 +488,10 @@
     if (_indicatorColor) {
         return _indicatorColor;
     }
+    else if ([_dataSource respondsToSelector:@selector(viewPager:colorForType:defaultColor:)]) {
+        self.indicatorColor = [_dataSource viewPager:self colorForType:HZIndicatorColor defaultColor:[UIColor redColor]];
+        return _indicatorColor;
+    }
     else if ([_dataSource respondsToSelector:@selector(indicatorColorOfViewPager:)]) {
         self.indicatorColor = [_dataSource indicatorColorOfViewPager:self];
         return _indicatorColor;
@@ -503,6 +507,10 @@
     if (_normalTextColor) {
         return _normalTextColor;
     }
+    else if ([_dataSource respondsToSelector:@selector(viewPager:colorForType:defaultColor:)]) {
+        self.normalTextColor = [_dataSource viewPager:self colorForType:HZNormalTextColor defaultColor:[UIColor blackColor]];
+        return _normalTextColor;
+    }
     else if ([_dataSource respondsToSelector:@selector(normalTextColorOfViewPager:)]) {
         self.normalTextColor = [_dataSource normalTextColorOfViewPager:self];
         return _normalTextColor;
@@ -516,6 +524,10 @@
 - (UIColor *)highlightedTextColor
 {
     if (_highlightedTextColor) {
+        return _highlightedTextColor;
+    }
+    else if ([_dataSource respondsToSelector:@selector(viewPager:colorForType:defaultColor:)]) {
+        self.highlightedTextColor = [_dataSource viewPager:self colorForType:HZHighlightedTextColor defaultColor:[UIColor redColor]];
         return _highlightedTextColor;
     }
     else if ([_dataSource respondsToSelector:@selector(highlightedTextColorOfViewPager:)]) {
